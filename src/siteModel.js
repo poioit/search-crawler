@@ -1,6 +1,6 @@
 "use strict";
 
-var mongoose = require('mongoose-promised');
+var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PageModel = require("./pageModel.js");
@@ -114,7 +114,7 @@ SiteModel.appGet = function(name){
 
 	return SiteModel
 		.where({name : name})
-		.findOneQ()
+		.findOne()
 		.then(function(site){
 				if (!site) {
 						throw new Error("Site '" + name + "' not found");
@@ -124,7 +124,7 @@ SiteModel.appGet = function(name){
 		});
 };
 SiteModel.appFindAll = function(){
-	return SiteModel.where().findQ();
+	return SiteModel.where().find();
 };
 SiteModel.appInsert = function(site){
 	if (!site.config){

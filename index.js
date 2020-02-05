@@ -65,7 +65,4 @@ searchCrawler.init()
 		app.listen(config.web.port, config.web.ip);
 
 		console.log("search-crawler running...");
-})
-.fail(function(error){
-		console.error(error);
 });
